@@ -162,3 +162,12 @@ This file **can** contain sensitive information - if you lose this file, you los
 
 `.terraform` directory contains the binaries of TF providers - these are needed for TF to run
 
+
+#### Terraform Destroy
+
+`terraform destroy` - This will destroy resources that were created in AWS. You can also use the `auto-approve` command here:
+
+`terraform destroy -auto-approve`
+
+
+
