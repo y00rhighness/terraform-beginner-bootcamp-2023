@@ -13,15 +13,21 @@ terraform {
     }
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 5.17.0"
     }
   }
 }
 
 
+provider "aws" {
+  # Configuration options
+  region = "us-west-2"
+}
+
 provider "random" {
   # Configuration options
 }
+
 
 #
 # https://registry.terraform.io/providers/hashicorp/random/latest

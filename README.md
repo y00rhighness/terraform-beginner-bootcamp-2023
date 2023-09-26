@@ -192,5 +192,6 @@ Once you have the key, you can create `/home/gitpod/.terraform.d/credentials.tfr
 }
 ```
 
+We have automated the tfrc generation workaround here [./bin/generate_tfrc_credentials](./bin/generate_tfrc_credentials) - but things appear to be horribly broken.
 
-press `P` to get the application to display a link.  By CTRL-clicking on the link, Gitpod will open the link in another window which you can then complete the process.
+
