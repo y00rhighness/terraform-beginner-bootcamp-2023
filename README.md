@@ -170,4 +170,27 @@ This file **can** contain sensitive information - if you lose this file, you los
 `terraform destroy -auto-approve`
 
 
+### Issues with Terraform Cloud login and Gitpod
 
+When attempting to run `terraform login` it will launch in a WYSIWYG bash window - which doesn't allow you to see it.  It doesn't work as expected.
+
+The workaround is to manually generate an API key in Terraform Cloud. The link to that is here:
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Once you have the key, you can create `/home/gitpod/.terraform.d/credentials.tfrc.json` and paste the following code in that file:
+
+```json
+{
+  "credentials": {
+      "app.terraform.io": {
+        "token": "PASTE YOUR API KEY HERE"
+    }
+  }
+}
+```
+
+
+press `P` to get the application to display a link.  By CTRL-clicking on the link, Gitpod will open the link in another window which you can then complete the process.
