@@ -6,3 +6,17 @@ variable "user_uuid" {
     error_message    = "The user_uuid value is not a valid UUID."
   }
 }
+
+
+variable "bucket_name" {
+  description = "The S3 bucket name"
+  type        = string
+
+  validation {
+    condition     = (
+      length(var.bucket_name) >= 3 && length(var.bucket_name) <= 63 && 
+      can(regex("^[a-z0-9][a-z0-9-.]*[a-z0-9]$", var.bucket_name))
+    )
+    error_message = "The bucket name must be 3-63 characters, start & end with a lowercase letter or number, and can contain only lowercase letters, numbers, hyphens, and dots."
+  }
+}

@@ -44,8 +44,27 @@ This is the default file to load in terraform variables in blunk
 
 ### auto.tfvars
 
-- TODO: document this functionality for terraform cloud
+- TODO: document this functionality for TF cloud
 
 ### order of terraform variables
 
-- TODO: document which terraform variables takes presendence.
+- TODO: document which TF variables takes presendence.
+
+## Dealing With Configuration Drift
+
+## What happens if we lose/delete our state file?
+
+If you lose/delete your statefile, you will most likley need to tear down all your cloud infrastructure manually.
+
+You can use TF port, but it doesn't work for *ALL* cloud resources. You'll need check the TF providers documentation to see which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone deletes/modifies a cloud resource manually via ClickOps, we can run TF plan to *attempt* to put our infrastructure back into the expected state.
