@@ -2,11 +2,29 @@
 
 ## Table of Contents
 
-- [Semantic Versioning](#semantic-versioning)
-- [Installling the Terraform CLI](#installing-the-terraform-cli)
-  - [Considerations for Linux Distributions](#considerations-for-linux-distributions)
-  - [Other considerations](#other-considerations)
-  - [Working with Environmental Variables (Env Vars)]
+- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+  * [Table of Contents](#table-of-contents)
+  * [Semantic Versioning](#semantic-versioning)
+  * [Installing the Terraform CLI](#installing-the-terraform-cli)
+    + [Considerations for Linux Distributions](#considerations-for-linux-distributions)
+    + [Other considerations](#other-considerations)
+    + [Working with Environmental Variables (Env Vars)](#working-with-environmental-variables--env-vars-)
+      - [env command](#env-command)
+      - [Settting / unsetting env vars](#settting---unsetting-env-vars)
+      - [Printing Env Vars](#printing-env-vars)
+      - [Scoping of Env Vars](#scoping-of-env-vars)
+      - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+    + [AWS CLI Installation](#aws-cli-installation)
+    + [Terraform Basics](#terraform-basics)
+      - [Terraform Console](#terraform-console)
+      - [Terraform init](#terraform-init)
+      - [Terraform plan](#terraform-plan)
+      - [Terraform apply](#terraform-apply)
+      - [Terraform lock file](#terraform-lock-file)
+      - [Terraform state file](#terraform-state-file)
+      - [Terraform Directory](#terraform-directory)
+      - [Terraform Destroy](#terraform-destroy)
+    + [Issues with Terraform Cloud login and Gitpod](#issues-with-terraform-cloud-login-and-gitpod)
 
 
 ## Semantic Versioning
