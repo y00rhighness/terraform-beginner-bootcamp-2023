@@ -219,6 +219,6 @@ Once you have the key, you can create `/home/gitpod/.terraform.d/credentials.tfr
 }
 ```
 
-We have automated the tfrc generation workaround here [./bin/generate_tfrc_credentials](./bin/generate_tfrc_credentials) - but things appear to be horribly broken.
+We have automated the tfrc generation workaround here [./bin/generate_tfrc_credentials](./bin/generate_tfrc_credentials) - Also needed to add AWS keys into TF Cloud as sensitive variables.
 
 
