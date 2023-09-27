@@ -5,7 +5,8 @@
 - [Semantic Versioning](#semantic-versioning)
 - [Installling the Terraform CLI](#installing-the-terraform-cli)
   - [Considerations for Linux Distributions](#considerations-for-linux-distributions)
-  
+  - [Other considerations](#other-considerations)
+  - [Working with Environmental Variables (Env Vars)]
 
 
 ## Semantic Versioning
