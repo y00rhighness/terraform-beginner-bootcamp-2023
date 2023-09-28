@@ -68,3 +68,34 @@ You can use TF port, but it doesn't work for *ALL* cloud resources. You'll need 
 ### Fix Manual Configuration
 
 If someone deletes/modifies a cloud resource manually via ClickOps, we can run TF plan to *attempt* to put our infrastructure back into the expected state.
+
+
+## TF Modules
+
+## TF Modules Structure
+
+It is recommended that you place your modules into a `modules` directory when you are developing locally.
+
+### Pasing Input Variables
+
+We can pass variables to our modules. The module has to declare its own TF variables in the variables.tf file
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Module Sources
+
+[Module Sources](https://developer.hashicorp.com/terraform/language/modules)
+
+
+Using the source, we can import modules from multiple places (locally, Github, TF Registry, etc, etc,etc)
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
