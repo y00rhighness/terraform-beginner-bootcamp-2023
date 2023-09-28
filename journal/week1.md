@@ -31,6 +31,7 @@ We can set Terraform Cloud variables to be sensitive so they are not shown visib
 
 [Terraform Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
+
 ### var flag
 We can use the `-var` flag to set an input variable or override a variable in the tfvars file eg. `terraform -var user_ud="my-user_id"`
 
@@ -69,16 +70,22 @@ You can use TF port, but it doesn't work for *ALL* cloud resources. You'll need 
 
 If someone deletes/modifies a cloud resource manually via ClickOps, we can run TF plan to *attempt* to put our infrastructure back into the expected state.
 
+## Fix using Terraform Refresh
 
-## TF Modules
+```sh
+terraform apply -refresh-only -auto-approve
+```
 
-## TF Modules Structure
+## Terraform Modules
 
-It is recommended that you place your modules into a `modules` directory when you are developing locally.
+### Terraform Module Structure
 
-### Pasing Input Variables
+It is recommend to place modules in a `modules` directory when developing locally - but you can name it whatever you want.
 
-We can pass variables to our modules. The module has to declare its own TF variables in the variables.tf file
+### Passing Input Variables
+
+We can pass input variables into our module.
+The module has to declare the TF variables in its own variables.tf file
 
 ```tf
 module "terrahouse_aws" {
@@ -88,14 +95,16 @@ module "terrahouse_aws" {
 }
 ```
 
-### Module Sources
+### Modules Sources
 
-[Module Sources](https://developer.hashicorp.com/terraform/language/modules)
-
-
-Using the source, we can import modules from multiple places (locally, Github, TF Registry, etc, etc,etc)
+Using the source we can import the module from various places eg:
+- locally
+- Terraform Registry
+- Github
 ```tf
 module "terrahouse_aws" {
   source = "./modules/terrahouse_aws"
 }
 ```
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
