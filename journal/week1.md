@@ -31,6 +31,7 @@ We can set Terraform Cloud variables to be sensitive so they are not shown visib
 
 [Terraform Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
+
 ### var flag
 We can use the `-var` flag to set an input variable or override a variable in the tfvars file eg. `terraform -var user_ud="my-user_id"`
 
@@ -68,3 +69,42 @@ You can use TF port, but it doesn't work for *ALL* cloud resources. You'll need 
 ### Fix Manual Configuration
 
 If someone deletes/modifies a cloud resource manually via ClickOps, we can run TF plan to *attempt* to put our infrastructure back into the expected state.
+
+## Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
+## Terraform Modules
+
+### Terraform Module Structure
+
+It is recommend to place modules in a `modules` directory when developing locally - but you can name it whatever you want.
+
+### Passing Input Variables
+
+We can pass input variables into our module.
+The module has to declare the TF variables in its own variables.tf file
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+Using the source we can import the module from various places eg:
+- locally
+- Terraform Registry
+- Github
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
