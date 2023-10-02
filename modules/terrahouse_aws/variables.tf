@@ -7,9 +7,8 @@ variable "user_uuid" {
   }
 }
 
-
 variable "bucket_name" {
-  description = "The S3 bucket name"
+  description = "The name of the S3 bucket"
   type        = string
 
   validation {
@@ -17,7 +16,7 @@ variable "bucket_name" {
       length(var.bucket_name) >= 3 && length(var.bucket_name) <= 63 && 
       can(regex("^[a-z0-9][a-z0-9-.]*[a-z0-9]$", var.bucket_name))
     )
-    error_message = "The bucket name must be 3-63 characters, start & end with a lowercase letter or number, and can contain only lowercase letters, numbers, hyphens, and dots."
+    error_message = "The bucket name must be between 3 and 63 characters, start and end with a lowercase letter or number, and can contain only lowercase letters, numbers, hyphens, and dots."
   }
 }
 
@@ -49,4 +48,9 @@ variable "content_version" {
     condition     = var.content_version > 0 && floor(var.content_version) == var.content_version
     error_message = "The content_version must be a positive integer starting at 1."
   }
+}
+
+variable "assets_path" {
+  description = "Path to assets folder"
+  type = string
 }
